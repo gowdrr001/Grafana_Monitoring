@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-USER="loaduser"
-PASS="StrongPassword"
+USER="localhost"
+PASS="Grafana@123"
 DB="grafana_monitoring"
 
 # Helper: Execute SQL
