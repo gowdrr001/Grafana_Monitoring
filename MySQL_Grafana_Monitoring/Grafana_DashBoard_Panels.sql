@@ -9,10 +9,20 @@
 * Purpose : Monitor the rate of queries executed per second
 * Panel Type : Time Series
 **********************************************/
-SELECT timest AS time, variable_value AS Query_Count
-FROM grafana_monitoring.status
-WHERE variable_name = 'QUERIES-d'
-ORDER BY timest DESC
+SELECT 
+    s1.timest AS time,
+    s1.variable_value - s2.variable_value AS Query_Count
+FROM grafana_monitoring.status s1
+JOIN grafana_monitoring.status s2
+ON s1.variable_name='QUERIES'
+AND s2.variable_name='QUERIES'
+AND s2.timest = (
+    SELECT MAX(timest)
+    FROM grafana_monitoring.status
+    WHERE variable_name='QUERIES'
+    AND timest < s1.timest
+)
+ORDER BY s1.timest DESC;
 
 
 
