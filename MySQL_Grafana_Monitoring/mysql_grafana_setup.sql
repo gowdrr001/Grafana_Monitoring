@@ -227,9 +227,9 @@ CREATE USER 'grafana_monitoring'@'LOCALHOST'
   IDENTIFIED BY '123';
 
 -- Grant minimal required privileges
-GRANT SELECT, INSERT, DELETE ON grafana_monitoring.* TO 'grafana_monitoring'@'YOUR_USER';
-GRANT SELECT ON performance_schema.* TO 'grafana_monitoring'@'YOUR_USER';
-GRANT PROCESS ON *.* TO 'grafana_monitoring'@'YOUR_USER';
+GRANT SELECT, INSERT, DELETE ON grafana_monitoring.* TO 'grafana_monitoring'@'localhost';
+GRANT SELECT ON performance_schema.* TO 'grafana_monitoring'@'localhost';
+GRANT PROCESS ON *.* TO 'grafana_monitoring'@'localhost';
 
 -- Apply changes
 FLUSH PRIVILEGES;
