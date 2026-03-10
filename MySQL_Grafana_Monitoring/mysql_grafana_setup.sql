@@ -223,7 +223,7 @@ SET sql_log_bin = 1;
 **********************************************/
 
 -- Create dedicated monitoring user
-CREATE USER 'grafana_monitoring'@'LOCALHOST'
+CREATE USER 'grafana_monitoring'@'localhost'
   IDENTIFIED BY '123';
 
 -- Grant minimal required privileges
